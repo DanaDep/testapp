@@ -1,0 +1,5 @@
+/.vscode
+debug
+*.exe
+*node_modules*
+package-lock*

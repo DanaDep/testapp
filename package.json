@@ -2,7 +2,7 @@
   "name": "testapp",
   "version": "1.0.0",
   "description": "node js, react js, mobx, mongodb, docker",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/DanaDep/testapp/issues"
   },
-  "homepage": "https://github.com/DanaDep/testapp#readme"
+  "homepage": "https://github.com/DanaDep/testapp#readme",
+  "dependencies": {
+    "@hapi/hapi": "^18.3.1"
+  }
 }

@@ -1,13 +1,20 @@
 'use strict';
 
+const mongoose = require('../config/db');
+
 exports.plugin = {
     pkg: require('../package.json'),
     register: async function(server, options){
         server.route({
             method: 'GET',
-            path: '/test',
+            path: '/status',
             handler: function(request, h){
-                return 'hello world';
+                const connectionState = mongoose.connection.readyState; 
+                if(connectionState === 1){
+                    return h.response('DB status is connected').code(200);
+                }
+                //TODO: find a more suitable status code
+                return h.response('DB status is disconnecting').code(500); 
             }
         });
 
@@ -18,7 +25,5 @@ exports.plugin = {
                 return 'It works';
             }
         });
-
-        //await someAsyncMethods();
     }
 };

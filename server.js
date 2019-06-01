@@ -13,6 +13,7 @@ const init = async () => {
 
     await server.start();
     console.log('Server running on %s', server.info.uri);
+    await server.register(require('./plugin/services'));
 };
 
 process.on('unhandledRejection', (err) => {

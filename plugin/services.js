@@ -37,7 +37,8 @@ exports.plugin = {
                         serviceId: faker.random.uuid(),
                         serviceName: faker.random.word(),
                         serviceType: faker.random.word()
-                    }
+                    },
+                    quantity: faker.random.number()
                 });
                 product.save(function (error, product) {
                     if (error) {
@@ -48,5 +49,41 @@ exports.plugin = {
                 return h.response(product).code(201);
             }
         });
+
+        server.route({
+            method: 'GET',
+            path: '/aggregationtime',
+            handler: async function (request, h) {
+                let fromDate = new Date();
+                await getDataFromDb();
+                let toDate = new Date() - fromDate;
+                if (toDate) {
+                    return h.response({
+                        "executionTime": toDate
+                    }).code(200);
+                }
+                return h.response({
+                    "executionTime": toDate
+                }).code(500);
+            }
+        });
+
+        //
+        async function getDataFromDb() {
+            let products = Product.aggregate([{
+                    $match: {
+                        quantity: {
+                            $gt: 10000
+                        }
+                    }
+                },
+                {
+                    $group: {
+                        _id: '$name'
+                    }
+                }
+            ]);
+            return products;
+        }
     }
 };

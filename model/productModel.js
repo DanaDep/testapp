@@ -5,11 +5,12 @@ const productSchema = new Schema({
     productId: String,
     name: String,
     description: String,
-    service:{
+    service: {
         serviceId: String,
         serviceName: String,
         serviceType: String
-    }
+    },
+    quantity: Number
 });
 
 module.exports = mongoose.model('Product', productSchema);

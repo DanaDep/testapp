@@ -35,3 +35,36 @@
                 //        // return products;
 
                 //    // }
+
+
+
+
+
+                export default class Login extends React.Component{
+                    state = {
+                        email: '',
+                        password: '',
+                    }
+                
+                    onChange = (event) =>{
+                        this.setState({
+                            [event.target.name]: event.target.value,
+                        });
+                    }
+                
+                    onSubmit = () => {
+                        console.log(this.state);
+                    }
+                
+                    render(){
+                        return(
+                            <div>
+                                <Input name='email'onChange={event => this.onChange(event)} value={this.state.email}/>
+                                <br/>
+                                <Input name='password'onChange={event => this.onChange(event)} value={this.state.password}/>
+                                <br/>
+                                <Button onClck={() => this.onSubmit()}type="primary">Login</Button>
+                            </div>
+                        );
+                    }
+                }                

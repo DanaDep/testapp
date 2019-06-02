@@ -1,0 +1,77 @@
+{
+	"info": {
+		"_postman_id": "bb57b642-a599-4dd7-8424-a1fc362f4e93",
+		"name": "rest-tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:3001/status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/status",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3001/data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/data",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3001/aggregationtime",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"productId\": \"prod0\",\n\t\"name\": \"Lexware\",\n\t\"description\": \"A product which can be used for many...\",\n\t\"service\":{\n\t\t\"serviceId\": \"srv0\",\n\t\t\"serviceName\": \"Office\",\n\t\t\"serviceType\": \"Online\"\n\t}\n}"
+				},
+				"url": {
+					"raw": "localhost:3001/aggregationtime",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"aggregationtime"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

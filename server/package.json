@@ -22,5 +22,9 @@
     "dotenv": "^8.0.0",
     "faker": "^4.1.0",
     "mongoose": "^5.5.12"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-plugin-react": "^7.13.0"
   }
 }

@@ -21,5 +21,8 @@
   "homepage": "https://github.com/DanaDep/testapp#readme",
   "devDependencies": {
     "concurrently": "^4.1.0"
+  },
+  "dependencies": {
+    "winston": "^3.2.1"
   }
 }
